@@ -23,6 +23,7 @@ public class User {
         this.age = age;
         lastLogin = new Date();
         lastLogin = Date.from(Instant.now());
+        addressList = null;
     }
 
     public ArrayList<Address> getAddressList() {
