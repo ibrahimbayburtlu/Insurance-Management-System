@@ -45,11 +45,6 @@ public class AccountManager {
             }
         }
     }
-
-    private void login(String email, String password) {
-
-    }
-
     public void createAccount() {
         String name, surName, email, password, job, age;
         System.out.print("Enter name: ");
@@ -76,5 +71,57 @@ public class AccountManager {
             prop = new Enterprise(user);
         }
         accounts.add(prop);
+    }
+    public void login(String email, String password) {
+        for (Account account : accounts){
+            try{
+                account.login(email,password);
+                if (account.isLogin()){
+                    currentUser = account.getUser();
+                    this.account = account;
+                    if (account.getType() == 1){
+                        individualUserProcess();
+                    }else {
+                        individualUserProcess();
+                    }break;
+                }
+            }catch (InvalidAuthenticationException e){
+                System.out.println("Error messeage");
+            }
+        }
+    }
+    public void individualUserProcess(){
+        System.out.println("Welcome "+currentUser.getName());
+        String select = "1";
+        while (!select.equals("q")){
+            System.out.println("\n1-) Show my info");
+            System.out.println("2-) Get Insurance");
+            System.out.println("3-) Show Insurance List");
+            System.out.println("4-) Add Address");
+            System.out.println("5-) Show All Address");
+            select = input.nextLine();
+
+            if (select.equals("1")){
+                account.showInfo();
+            }else if (select.equals("2")){
+                InsuranceManager insuranceManager = new InsuranceManager();
+                account.addInsurance(insuranceManager.createInsurance(currentUser));
+            }else if (choice.equals("3")) {
+                for (Insurance insurance: account.getUser().getInsuranceList()) {
+                    System.out.print(" \n  Name : "+ insurance.getInsuranceName());
+                    System.out.println("Prace : "+insurance.getInsurancePrice());
+                }
+            } else if (choice.equals("4")) {
+                account.addAddress(AddresManager.createHomeAddress());
+            } else if (choice.equals("5")) {
+                for (Address address:currentUser.getAddressList()){
+                    System.out.println(currentUser.getAddressList());
+                }
+            }
+        }
+    }
+    public  void enterpriseUserProcess(){}
+    public  TreeSet<Account>getAccounts(){
+        return accounts;
     }
 }
