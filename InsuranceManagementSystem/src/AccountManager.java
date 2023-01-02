@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import static sun.security.jgss.GSSUtil.login;
-
 public class AccountManager {
 
     private static boolean flag = true;
