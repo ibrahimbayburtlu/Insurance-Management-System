@@ -26,6 +26,10 @@ public class User {
         addressList = null;
     }
 
+    public static Insurance[] getInsuranceList() {
+        return new Insurance[0];
+    }
+
     public ArrayList<Address> getAddressList() {
         return addressList;
     }
@@ -60,5 +64,9 @@ public class User {
 
     public void setLastLogin() {
         lastLogin = Date.from(Instant.now());
+    }
+
+    public String getsName() {
+        return name;
     }
 }

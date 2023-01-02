@@ -57,7 +57,6 @@ public abstract class Insurance {
             super(insuranceName, insurancePrice, insuranceDate, user);
         }
     }
-    @Override
     public double calculate(double insurancePrice){
         System.out.println("24 mount insurance plan cost is :"+insurancePrice * 24);
         return insurancePrice * 24;
