@@ -27,10 +27,10 @@ The "User" class refers to the customer's contact information. Customer in "User
 * age (int),
 
 
-* address list (ArrayList<Address>)
+* address list (ArrayList<Address>),
 
 
-* last login date (Date)
+* last login date (Date),
 
 
 information is available. Also, the "User" class has a list of ArrayList type addresses. Address information is of two types. Design two classes: Home address ("HomeAddress") and Business address ("BusinessAddress"). These address classes will inherit from an interface named "Address". However, you decide what functions should be in this interface.
