@@ -27,7 +27,7 @@ The "User" class refers to the customer's contact information. Customer in "User
 * age (int),
 
 
-* address list (ArrayList<Address>),
+* address list (ArrayList Address),
 
 
 * last login date (Date),
